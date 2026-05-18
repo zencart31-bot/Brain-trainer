@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPULSE BRAIN TRAINER FOR CLEVER KIDS - Digital Book</title>
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --primary-dark: #5A4BD1;
+            --secondary: #FF6B6B;
+            --accent: #FFD93D;
+            --dark: #2D3436;
+            --light: #F8F9FA;
+            --gradient-1: linear-gradient(135deg, #6C5CE7, #a29bfe);
+            --gradient-2: linear-gradient(135deg, #FF6B6B, #FFD93D);
+            --gradient-hero: linear-gradient(160deg, #0c0c1d 0%, #1a1a3e 30%, #2d1b69 60%, #0c0c1d 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 40px rgba(108, 92, 231, 0.4);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', 'Noto Sans Devanagari', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0c0c1d;
+            color: #e0e0e0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Floating Particles */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatUp linear infinite;
+            opacity: 0.5;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .main-wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 30px;
+            background: rgba(20, 20, 45, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            margin-top: 20px;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .btn-nav {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            white-space: nowrap;
+        }
+        .btn-nav:hover {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 60px 30px 80px;
+            margin-top: 30px;
+            background: var(--gradient-hero);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 217, 61, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 217, 61, 0.3);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #fff, #c4b5fd, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero h1 .highlight {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #b0b0cc;
+            margin-bottom: 28px;
+            max-width: 500px;
+        }
+        .hero-price-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 24px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .hero-price-tag .original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1rem;
+        }
+        .hero-price-tag .discounted {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+        .hero-price-tag .save {
+            background: #27ae60;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .btn-hero {
+            display: inline-block;
+            background: var(--gradient-2);
+            color: #1a1a2e;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.35);
+            letter-spacing: 0.5px;
+        }
+        .btn-hero:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+        }
+        .hero-visual {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .book-mockup {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            animation: floatBook 4s ease-in-out infinite;
+            background: linear-gradient(145deg, #1e1e3a, #2a2a55);
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+        @keyframes floatBook {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        .book-emoji {
+            font-size: 8rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+            margin: 0 auto 40px;
+        }
+
+        /* FEATURES */
+        .features-section {
+            padding: 70px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: rgba(25, 25, 50, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius);
+            padding: 30px 24px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(108, 92, 231, 0.4);
+            box-shadow: var(--shadow-glow);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* BENEFITS */
+        .benefits-section {
+            padding: 60px 0;
+            background: rgba(20, 20, 45, 0.5);
+            border-radius: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 30px 40px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+        }
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .benefit-check {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .benefit-item span {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            padding: 70px 0;
+        }
+        .pricing-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(25, 25, 55, 0.8);
+            border: 2px solid rgba(108, 92, 231, 0.3);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transition: var(--transition);
+        }
+        .pricing-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 60px rgba(255, 217, 61, 0.2);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-2);
+            color: #1a1a2e;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .pricing-card h3 {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-top: 16px;
+        }
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin: 16px 0;
+        }
+        .pricing-card .price small {
+            font-size: 1rem;
+            color: #888;
+            font-weight: 400;
+        }
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 24px 0;
+        }
+        .pricing-features li {
+            padding: 8px 0;
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+        .pricing-features li::before {
+            content: '✅ ';
+        }
+        .btn-buy {
+            display: block;
+            width: 100%;
+            background: var(--gradient-2);
+            color: #1a1a2e;
+            border: none;
+            padding: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 1.15rem;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);
+            letter-spacing: 0.5px;
+        }
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(255, 107, 107, 0.5);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-section {
+            padding: 60px 0;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .testimonial-card {
+            background: rgba(30, 30, 55, 0.6);
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .testimonial-card .stars {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .testimonial-card p {
+            color: #bbb;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .testimonial-card .author {
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* CHECKOUT MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal {
+            background: #1a1a35;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+            transition: var(--transition);
+        }
+        .modal-close:hover {
+            color: var(--secondary);
+        }
+        .modal h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .modal .form-group {
+            margin-bottom: 16px;
+        }
+        .modal label {
+            display: block;
+            color: #ccc;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .modal input,
+        .modal select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .modal input:focus,
+        .modal select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+        }
+        .modal select option {
+            background: #1a1a35;
+            color: #fff;
+        }
+        .btn-submit {
+            width: 100%;
+            background: var(--gradient-2);
+            color: #1a1a2e;
+            border: none;
+            padding: 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            margin-top: 8px;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+        .modal-note {
+            text-align: center;
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 12px;
+        }
+
+        /* SUCCESS MESSAGE */
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        .success-msg.active {
+            display: block;
+        }
+        .success-msg .icon {
+            font-size: 5rem;
+        }
+        .success-msg h3 {
+            color: #27ae60;
+            font-size: 1.5rem;
+            margin: 16px 0;
+        }
+        .success-msg p {
+            color: #bbb;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 40px 20px 50px;
+            }
+            .navbar {
+                padding: 14px 18px;
+                border-radius: 30px;
+                gap: 8px;
+            }
+            .nav-links {
+                gap: 12px;
+                font-size: 0.8rem;
+            }
+            .nav-logo {
+                font-size: 1rem;
+            }
+            .btn-nav {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .pricing-card .price {
+                font-size: 2.5rem;
+            }
+            .book-mockup {
+                max-width: 240px;
+            }
+            .book-emoji {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="nav-logo">🧠 IMPULSE BRAIN TRAINER</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#pricing">Price</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+            <button class="btn-nav" onclick="openCheckout()">🛒 Buy Now</button>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">🌟 BESTSELLING DIGITAL BOOK</span>
+                <h1>IMPULSE <span class="highlight">BRAIN TRAINER</span> FOR CLEVER KIDS</h1>
+                <p class="hero-subtitle">
+                    🧠 <strong>Apne bachche ke dimaag ko banaye SUPERFAST!</strong> Ye digital book specially designed hai
+                    4-12 saal ke bachchon ke liye — puzzles, brain games, logical challenges aur bahut kuch! Instant PDF
+                    download. Kahi bhi, kabhi bhi padhe.
+                </p>
+                <div class="hero-price-tag">
+                    <span class="original">₹999</span>
+                    <span class="discounted">₹299</span>
+                    <span class="save">70% OFF</span>
+                </div>
+                <br>
+                <a href="#pricing" class="btn-hero">📥 Abhi Khareedein – Instant Download</a>
+            </div>
+            <div class="hero-visual">
+                <div class="book-mockup">
+                    <span class="book-emoji">📘🧩</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features-section" id="features">
+            <h2 class="section-title">✨ Kya-Kya Hai Is Book Mein?</h2>
+            <p class="section-subtitle">200+ pages of pure brain-boosting fun!</p>
+            <div class="section-divider"></div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Brain Puzzles</h3>
+                    <p>Mazedaar puzzles jo logical thinking aur problem-solving skills boost karte hain.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔢</div>
+                    <h3>Math Games</h3>
+                    <p>Fun math challenges jo number fear ko hatakar confidence build karte hain.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔤</div>
+                    <h3>Word Power</h3>
+                    <p>Vocabulary builders, crosswords aur spelling games for better language skills.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Focus Boosters</h3>
+                    <p>Concentration exercises jo attention span aur memory power badhate hain.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Creative Challenges</h3>
+                    <p>Drawing prompts, story starters aur imagination exercises for creative minds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Digital Format</h3>
+                    <p>PDF format — instant download. Phone, tablet ya laptop par kahi bhi use karein.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits-section" id="benefits">
+            <h2 class="section-title">🌟 Bachche Ko Kya Fayda Hoga?</h2>
+            <p class="section-subtitle">Scientifically designed activities for holistic brain development</p>
+            <div class="section-divider"></div>
+            <div class="benefits-list">
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>IQ Boost:</strong> Regular practice se problem-solving ability 3x improve hoti hai.</span></div>
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>Memory Power:</strong> Visual memory exercises jo school performance enhance karte hain.</span></div>
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>Focus & Attention:</strong> Screen time se better — focused brain training jo ADHD symptoms reduce karta hai.</span></div>
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>Logical Thinking:</strong> Step-by-step reasoning challenges for sharp analytical skills.</span></div>
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>Confidence Builder:</strong> Har puzzle solve karne par bachche ko sense of achievement milta hai.</span></div>
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>Screen-Free Fun:</strong> Print karke use karein ya tablet par — guilt-free engagement.</span></div>
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>Exam Readiness:</strong> Olympiad, NTSE aur competitive exams ke patterns par based activities.</span></div>
+                <div class="benefit-item"><span class="benefit-check">✅</span><span><strong>Bonding Time:</strong> Parents ke saath milke solve karein — quality family time.</span></div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="pricing-section" id="pricing">
+            <h2 class="section-title">💰 Special Launch Offer</h2>
+            <p class="section-subtitle">Limited time deal — price jald hi badhega!</p>
+            <div class="section-divider"></div>
+            <div class="pricing-card">
+                <span class="pricing-badge">🔥 BEST VALUE</span>
+                <h3>IMPULSE BRAIN TRAINER</h3>
+                <p style="color:#aaa;">Complete Digital Book (PDF)</p>
+                <div class="price">₹299 <small>only</small></div>
+                <p style="color:#27ae60;font-weight:700;">🎉 70% Discount — MRP ₹999</p>
+                <ul class="pricing-features">
+                    <li>200+ Pages of Brain Activities</li>
+                    <li>Instant PDF Download</li>
+                    <li>Lifetime Access</li>
+                    <li>Print-Friendly Format</li>
+                    <li>Free Future Updates</li>
+                    <li>30-Day Satisfaction Guarantee</li>
+                </ul>
+                <button class="btn-buy" onclick="openCheckout()">🛒 Buy Now – Just ₹299</button>
+                <p style="color:#888;font-size:0.8rem;margin-top:10px;">🔒 Secure payment. Instant delivery.</p>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials-section" id="testimonials">
+            <h2 class="section-title">💬 Parents Kya Kehte Hain?</h2>
+            <p class="section-subtitle">1000+ happy families trust IMPULSE BRAIN TRAINER</p>
+            <div class="section-divider"></div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Mera 7 saal ka beta phone chhod kar is book mein laga rehta hai! Uska maths suddenly improve ho gaya. Best purchase!"</p>
+                    <span class="author">— Priya Sharma, Mumbai</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"PDF format is super convenient. Main print karke daily 2 pages deti hoon. Bachche ka focus bahut improve hua."</p>
+                    <span class="author">— Rajesh Gupta, Delhi</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Itni kam price mein itna valuable content! Mere dono bachche compete karte hain puzzles solve karne mein. Highly recommended!"</p>
+                    <span class="author">— Sneha Patel, Ahmedabad</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>© 2026 <strong>IMPULSE BRAIN TRAINER FOR CLEVER KIDS</strong>. All Rights Reserved.</p>
+            <p>Digital Product — Instant PDF Delivery | <a href="mailto:support@impulsebraintrainer.com">Contact Support</a></p>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeCheckout()">&times;</button>
+
+            <!-- Form View -->
+            <div id="checkoutForm">
+                <h2>🛒 Complete Your Order</h2>
+                <p style="text-align:center;color:#aaa;margin-bottom:18px;">IMPULSE BRAIN TRAINER — <strong style="color:#FFD93D;">₹299</strong></p>
+                <form id="orderForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>👤 Aapka Naam (Full Name)</label>
+                        <input type="text" id="customerName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📧 Email Address</label>
+                        <input type="email" id="customerEmail" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📱 Phone Number</label>
+                        <input type="tel" id="customerPhone" placeholder="+91 98765 43210" required>
+                    </div>
+                    <div class="form-group">
+                        <label>💳 Payment Method</label>
+                        <select id="paymentMethod" required>
+                            <option value="">-- Select Payment Method --</option>
+                            <option value="upi">UPI (Google Pay / PhonePe / Paytm)</option>
+                            <option value="card">Credit / Debit Card</option>
+                            <option value="netbanking">Net Banking</option>
+                            <option value="cod">Cash on Delivery (COD) — ₹50 extra</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="upiField" style="display:none;">
+                        <label>📲 UPI ID</label>
+                        <input type="text" id="upiId" placeholder="yourname@upi">
+                        <p style="color:#888;font-size:0.75rem;margin-top:4px;">Send ₹299 to UPI: <strong>impulsebrain@upi</strong> — FIR "IMPULSE" — Then submit.</p>
+                    </div>
+                    <button type="submit" class="btn-submit">✅ Place Order – ₹299</button>
+                </form>
+                <p class="modal-note">🔒 Your information is 100% secure. Instant PDF download link after confirmation.</p>
+            </div>
+
+            <!-- Success View -->
+            <div class="success-msg" id="successMsg">
+                <div class="icon">🎉</div>
+                <h3>Order Confirmed! 🧠</h3>
+                <p><strong>Thank you for your purchase!</strong></p>
+                <p>Your digital book <strong>"IMPULSE BRAIN TRAINER FOR CLEVER KIDS"</strong> ka download link aapke email
+                    <span id="displayEmail" style="color:#FFD93D;"></span> par bhej diya jayega.</p>
+                <p style="color:#27ae60;font-weight:700;">📥 Instant Access — Check Your Inbox!</p>
+                <p style="color:#888;font-size:0.85rem;">Kisi bhi query ke liye: support@impulsebraintrainer.com</p>
+                <button class="btn-submit" onclick="closeCheckout()" style="margin-top:16px;">👍 Done — Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============ PARTICLES ============
+        const particlesContainer = document.getElementById('particles');
+        const colors = ['#6C5CE7', '#FF6B6B', '#FFD93D', '#a29bfe', '#fd79a8', '#00cec9'];
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 6 + 3;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particlesContainer.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, (parseFloat(particle.style.animationDuration) + parseFloat(particle.style.animationDelay)) * 1000);
+        }
+
+        setInterval(createParticle, 400);
+        for (let i = 0; i < 30; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+
+        // ============ CHECKOUT MODAL ============
+        function openCheckout() {
+            document.getElementById('checkoutModal').classList.add('active');
+            document.getElementById('checkoutForm').style.display = 'block';
+            document.getElementById('successMsg').classList.remove('active');
+            document.getElementById('orderForm').reset();
+            document.getElementById('upiField').style.display = 'none';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('checkoutModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCheckout();
+            }
+        });
+
+        // Show/hide UPI field
+        document.getElementById('paymentMethod').addEventListener('change', function() {
+            const upiField = document.getElementById('upiField');
+            if (this.value === 'upi') {
+                upiField.style.display = 'block';
+            } else {
+                upiField.style.display = 'none';
+            }
+        });
+
+        // ============ FORM SUBMISSION ============
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('customerName').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            if (!name || !email || !phone || !paymentMethod) {
+                alert('⚠️ Please fill all required fields!');
+                return;
+            }
+
+            // Simple email validation
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('⚠️ Please enter a valid email address!');
+                return;
+            }
+
+            // Simulate order processing
+            const submitBtn = document.querySelector('.btn-submit');
+            submitBtn.textContent = '⏳ Processing...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                // Show success
+                document.getElementById('checkoutForm').style.display = 'none';
+                document.getElementById('successMsg').classList.add('active');
+                document.getElementById('displayEmail').textContent = email;
+                submitBtn.textContent = '✅ Place Order – ₹299';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+
+                // Log order (in real scenario, send to server)
+                console.log('📦 New Order:', {
+                    name,
+                    email,
+                    phone,
+                    paymentMethod,
+                    product: 'IMPULSE BRAIN TRAINER FOR CLEVER KIDS',
+                    price: '₹299',
+                    timestamp: new Date().toISOString()
+                });
+            }, 2000);
+        }
+
+        // ============ ESC KEY TO CLOSE MODAL ============
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCheckout();
+            }
+        });
+
+        // ============ SMOOTH SCROLL FOR NAV LINKS ============
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
